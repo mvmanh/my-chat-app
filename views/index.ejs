@@ -14,7 +14,7 @@
 
     <script>
 
-        const client = new WebSocket('ws://localhost:8080')
+        const client = new WebSocket()
 
         client.onopen = () => display('Connected to server')
         client.onmessage = msg => {
