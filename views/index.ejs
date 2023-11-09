@@ -14,7 +14,7 @@
 
     <script>
 
-        const client = new WebSocket()
+        const client = new WebSocket('wss://my-chat-app-bk7d.onrender.com')
 
         client.onopen = () => display('Connected to server')
         client.onmessage = msg => {
