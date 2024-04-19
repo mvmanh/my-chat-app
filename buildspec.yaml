@@ -34,6 +34,7 @@ phases:
     commands:
       - echo Entered post-build phase...
       - echo Build completed on `date`
+      # - rm -rf node_modules # xóa nodemodule
       # - echo 'uploading file to bucket'
       # - aws s3 cp target/app-0.0.1-SNAPSHOT.jar s3://mvmanh/app.jar
       # - echo Pushing Docker image...
@@ -43,7 +44,8 @@ artifacts:
   base-directory: ./  # Set the base directory for artifact collection
   files:
     - '**/*'          # Include all files and folders
-    - '!node_modules/**'  # Exclude the node_modules directory and its contents
+  exclude-paths: 
+      - ./node_modules
 
 cache:
   paths:
