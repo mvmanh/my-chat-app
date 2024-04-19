@@ -4,7 +4,10 @@ files:
   - source: /
     destination: /home/ec2-user/nodejs-aws-codedeploy-pipeline
 hooks:
-# ApplicationStop:
+  # ApplicationStop:
+  #   - location: scripts/stop.sh
+  #     timeout: 300
+  #     runas: root
 # DownloadBundle:
 #  BeforeInstall:
 #    - location: scripts/before_install.sh
