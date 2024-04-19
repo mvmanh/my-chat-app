@@ -13,8 +13,12 @@
     </ul>
 
     <script>
+        const host = window.location.hostname;
+        const port = window.location.port;
 
-        const client = new WebSocket('wss://my-chat-app-bk7d.onrender.com')
+        // Construct the WebSocket URL dynamically
+        const websocketURL = `ws://${host}:${port}`;
+        const client = new WebSocket(websocketURL)
 
         client.onopen = () => display('Connected to server')
         client.onmessage = msg => {
