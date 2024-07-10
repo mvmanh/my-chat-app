@@ -6,8 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 style="color:blue">Tích hợp code build, deploy và pipeline</h1>
-    <h1 style="color:green">Thử bỏ bớt một build step trong pipeline</h1>
+    <h1 style="color:blue">Welcome to Websocket chat</h1>
     <input type="text" id="message">
     <button id="send">Send</button>
     <ul id="messages">
@@ -19,8 +18,9 @@
         const port = window.location.port;
 
         // Construct the WebSocket URL dynamically
-        const websocketURL = `ws://${host}:${port}`;
-        const client = new WebSocket(websocketURL)
+        const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+        const websocketURL = `${protocol}://${host}:${port}`;
+        const client = new WebSocket(websocketURL);
 
         client.onopen = () => display('Connected to server')
         client.onmessage = msg => {
